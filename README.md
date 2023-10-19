@@ -1,10 +1,31 @@
-- 👋 Hi, I’m @serju321
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
+#include <iostream>
 
-<!---
-serju321/serju321 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+void reverseArray(double arr[], int size) {
+    for (int i = 0; i < size / 2; ++i) {
+        // Меняем элементы местами, начиная с краев массива
+        double temp = arr[i];
+        arr[i] = arr[size - 1 - i];
+        arr[size - 1 - i] = temp;
+    }
+}
+
+int main() {
+    double arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    std::cout << "Исходный массив: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << " ";
+    }
+
+    reverseArray(arr, size);
+
+    std::cout << "\nМассив после изменения порядка: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << " ";
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
